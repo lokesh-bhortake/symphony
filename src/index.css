@@ -57,7 +57,7 @@
     background: #fff;
   }
 
-.swiper-slide img {
+.swiper-slide > img {
     display: block;
     width: 100svw;
     height: 100svh;

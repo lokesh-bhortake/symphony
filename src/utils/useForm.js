@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {useUserAuth} from '../../contexts/UserAuthContext'
+import { useUserAuth } from '../contexts/UserAuthContext'
 import { validateSignUpForm, validateLogInForm } from './validations';
 
 const useForm = (validateFormInfo) => {

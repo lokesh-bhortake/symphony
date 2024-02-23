@@ -2,6 +2,7 @@ import sLogoPng from './logos/s.png'
 import sLogoSvg from './logos/s.svg'
 import logoPng from './logos/symphony.png'
 import logoSvg from './logos/symphony.svg'
+import amazonLogo from './logos/amazon_logo.png'
 import neckband_nav from './navbar_categories/neckband_nav.png'
 import w_earphone_nav from './navbar_categories/wired_earphone_nav.png'
 import w_headphone_nav from './navbar_categories/wired_headphone_nav.png'
@@ -19,6 +20,7 @@ const logos = {
     sLogoSvg: sLogoSvg, 
     logoPng: logoPng,
     logoSvg: logoSvg,
+    amazonLogo: amazonLogo,
 }
 
 const nav_category_imgs = {

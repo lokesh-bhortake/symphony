@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles";
-import useForm from "../utils/useForm";
-import { validateSignUpForm } from "../utils/validations";
+import useForm from "../../utils/useForm";
+import { validateSignUpForm } from "../../utils/validations";
 
 
 const SignUp = () => {
