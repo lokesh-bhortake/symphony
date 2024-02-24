@@ -9,11 +9,13 @@ import {
     SlArrowUp,
 } from "react-icons/sl";
 import { BsPlusLg, BsDashLg, BsXLg } from "react-icons/bs";
+import { useCart } from "../contexts/CartContext";
 import styles from "../styles";
 
 const Navbar = () => {
     const [navToggle, setNavToggle] = useState(false);
     const [categoriesToggle, setCategoriesToggle] = useState(false);
+    const { setIsVisible } = useCart();
 
     return (
         <nav className="fixed top-0 w-full px-2 md:px-4 pt-2 md:pt-4 py-2 md:py-0 text-shadow-green-50 text-base md:text-lg bg-pattens-blue-500 z-10">
@@ -119,7 +121,10 @@ const Navbar = () => {
                     </ul>
 
                     <section className={`${styles.flexCenter} gap-4 text-2xl`}>
-                        <SlBasket className="cursor-pointer" />
+                        <SlBasket
+                            onClick={() => setIsVisible(true)}
+                            className="cursor-pointer"
+                        />
                         <SlUser className="cursor-pointer" />
                     </section>
 
