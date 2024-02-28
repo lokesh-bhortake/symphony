@@ -14,15 +14,15 @@ const ProductSlide = ({ product }) => {
             <div className="flex flex-col gap-2">
                 <Link
                     className="gap-2 flex flex-col"
-                    to={`/products/${product.slug.current}`}
+                    to={`/products/${product.category}/${product.slug.current}`}
                     state={product}
                 >
                     <img
                         src={urlFor(product?.images[0]).url()}
                         alt={product.name}
-                        className=" rounded-t-xl"
+                        className="rounded-t-xl"
                     />
-                    <h3 className="font-bold">{product.name}</h3>
+                    <h3 className="font-bold text-center">{product.name}</h3>
                     <div
                         className={`flex justify-center items-center gap-2 text-xs w-full`}
                     >

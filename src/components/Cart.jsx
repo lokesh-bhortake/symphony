@@ -8,6 +8,7 @@ import {
     BsPlusLg,
 } from "react-icons/bs";
 import { RiDeleteBinFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const {
@@ -120,9 +121,12 @@ const Cart = () => {
                         <p>Inclusive of all taxes</p>
                     </section>
                     <section>
-                        <button className="h-full bg-pattens-blue-400 p-2 rounded-lg">
+                        <Link
+                            className="h-full bg-pattens-blue-400 p-2 rounded-lg"
+                            to=""
+                        >
                             Confirm Order
-                        </button>
+                        </Link>
                     </section>
                 </div>
             </div>

@@ -11,11 +11,32 @@ import {
 import { BsPlusLg, BsDashLg, BsXLg } from "react-icons/bs";
 import { useCart } from "../contexts/CartContext";
 import styles from "../styles";
+import { Link } from "react-router-dom";
+
+const categories = [
+    { name: "Neckbands", slug: "neckbands", img: nav_category_imgs.neckband_n },
+    {
+        name: "Wireless Headphones",
+        slug: "wireless-headphones",
+        img: nav_category_imgs.wless_headphone_n,
+    },
+    {
+        name: "Wired Headphones",
+        slug: "wired-headphones",
+        img: nav_category_imgs.w_headphone_n,
+    },
+    {
+        name: "Wired Earphones",
+        slug: "wired-earphones",
+        img: nav_category_imgs.w_earphone_n,
+    },
+];
 
 const Navbar = () => {
-    const [navToggle, setNavToggle] = useState(false);
-    const [categoriesToggle, setCategoriesToggle] = useState(false);
+    const [toggle, setToggle] = useState({ nav: false, categories: false });
     const { setIsVisible } = useCart();
+
+    const handleToggle = (key) => setToggle({ ...toggle, [key]: !toggle[key] });
 
     return (
         <nav className="fixed top-0 w-full px-2 md:px-4 pt-2 md:pt-4 py-2 md:py-0 text-shadow-green-50 text-base md:text-lg bg-pattens-blue-500 z-10">
@@ -24,22 +45,22 @@ const Navbar = () => {
                     <section
                         className={`${styles.flexCenter} cursor-pointer gap-x-4 pl-4`}
                     >
-                        {navToggle ? (
+                        {toggle.nav ? (
                             <BsXLg
                                 className="text-2xl md:hidden"
-                                onClick={() => setNavToggle(!navToggle)}
+                                onClick={() => handleToggle("nav")}
                             />
                         ) : (
                             <SlMenu
                                 className="text-2xl md:hidden"
-                                onClick={() => setNavToggle(!navToggle)}
+                                onClick={() => handleToggle("nav")}
                             />
                         )}
                         <a href="/">
                             <img
-                                src={logos.logoSvg}
+                                src={logos.logoSvgW}
                                 alt="logo"
-                                className=" h-12 w-auto"
+                                className="h-12 w-auto py-1"
                             />
                         </a>
                     </section>
@@ -50,74 +71,39 @@ const Navbar = () => {
                     >
                         <li
                             className={`${styles.flexCenter} gap-x-2 h-16`}
-                            onMouseEnter={() =>
-                                setCategoriesToggle(!categoriesToggle)
-                            }
-                            onMouseLeave={() =>
-                                setCategoriesToggle(!categoriesToggle)
-                            }
+                            onMouseEnter={() => handleToggle("categories")}
+                            onMouseLeave={() => handleToggle("categories")}
                         >
                             <span>Categories</span>
-                            {categoriesToggle ? <SlArrowUp /> : <SlArrowDown />}
+                            {toggle.categories ? (
+                                <SlArrowUp />
+                            ) : (
+                                <SlArrowDown />
+                            )}
 
-                            {categoriesToggle && (
+                            {toggle.categories && (
                                 <div className="absolute top-20 left-auto bg-black z-10">
                                     <ul className="grid grid-cols-4 gap-2 p-2 bg-pattens-blue-500">
-                                        <li
-                                            className={`bg-slate-300 p-2 flex items-center justify-start gap-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.neckband_n
-                                                }
-                                                alt="neckbands"
-                                                className="w-16 h-16"
-                                            />
-                                            <span>Neckbands</span>
-                                        </li>
-                                        <li
-                                            className={`bg-slate-300 p-2 flex items-center justify-start gap-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.wless_headphone_n
-                                                }
-                                                alt="wireless_headphones"
-                                                className="w-16 h-16"
-                                            />
-                                            <span>Wireless Headphones</span>
-                                        </li>
-                                        <li
-                                            className={`bg-slate-300 p-2 flex items-center justify-start gap-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.w_headphone_n
-                                                }
-                                                alt="wired_headphones"
-                                                className="w-16 h-16"
-                                            />
-                                            <span>Wired Hedphones</span>
-                                        </li>
-                                        <li
-                                            className={`bg-slate-300 p-2 flex items-center justify-start gap-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.w_earphone_n
-                                                }
-                                                alt="wired_earphones"
-                                                className="w-16 h-16"
-                                            />
-                                            <span>Wired Earphones</span>
-                                        </li>
+                                        {categories.map((cat) => (
+                                            <Link
+                                                key={cat.slug}
+                                                className={`bg-slate-300 p-2 flex items-center justify-start gap-2`}
+                                                to={`/products/${cat.slug}`}
+                                                // state={filterData(cat.slug)}
+                                            >
+                                                <img
+                                                    src={cat.img}
+                                                    alt={cat.slug}
+                                                    className="w-16 h-16"
+                                                />
+                                                <span>{cat.name}</span>
+                                            </Link>
+                                        ))}
                                     </ul>
                                 </div>
                             )}
                         </li>
                         <li>Bestsellers</li>
-
-                        {/* <li>Searchbar</li> */}
                     </ul>
 
                     <section className={`${styles.flexCenter} gap-4 text-2xl`}>
@@ -131,10 +117,10 @@ const Navbar = () => {
                     {/* Mobile nav */}
                     <div
                         className={`customSlide bg-pattens-blue-500 absolute border top-16 z-10 left-0 h-svh ${
-                            navToggle ? "" : "slide-close"
+                            toggle.nav ? "" : "slide-close"
                         }`}
                         style={{
-                            visibility: navToggle ? "visible" : "hidden",
+                            visibility: toggle.nav ? "visible" : "hidden",
                         }}
                     >
                         <ul
@@ -147,80 +133,42 @@ const Navbar = () => {
                             >
                                 <section className="flex items-center justify-between w-full">
                                     Categories
-                                    {categoriesToggle ? (
+                                    {toggle.categories ? (
                                         <BsDashLg
                                             className="text-xl"
                                             onClick={() =>
-                                                setCategoriesToggle(
-                                                    !categoriesToggle
-                                                )
+                                                handleToggle("categories")
                                             }
                                         />
                                     ) : (
                                         <BsPlusLg
                                             className="text-xl"
                                             onClick={() =>
-                                                setCategoriesToggle(
-                                                    !categoriesToggle
-                                                )
+                                                handleToggle("categories")
                                             }
                                         />
                                     )}
                                 </section>
                                 <section
                                     className={`${
-                                        categoriesToggle ? "block" : "hidden"
+                                        toggle.categories ? "block" : "hidden"
                                     } w-full bg-slate-700 text-white border`}
                                 >
                                     <ul className="grid grid-cols-2 gap-2">
-                                        <li
-                                            className={`${styles.flexCenter} flex-col text-center gap-2 pb-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.neckband_n
-                                                }
-                                                alt="neckbands"
-                                                className="w-24 h-24"
-                                            />
-                                            <span>Neckbands</span>
-                                        </li>
-                                        <li
-                                            className={`${styles.flexCenter} flex-col text-center gap-2 pb-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.wless_headphone_n
-                                                }
-                                                alt="wireless_headphones"
-                                                className="w-24 h-24"
-                                            />
-                                            <span>Wireless Headphones</span>
-                                        </li>
-                                        <li
-                                            className={`${styles.flexCenter} flex-col text-center gap-2 pb-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.w_headphone_n
-                                                }
-                                                alt="wired_headphones"
-                                                className="w-24 h-24"
-                                            />
-                                            <span>Wired Hedphones</span>
-                                        </li>
-                                        <li
-                                            className={`${styles.flexCenter} flex-col text-center gap-2 pb-2`}
-                                        >
-                                            <img
-                                                src={
-                                                    nav_category_imgs.w_earphone_n
-                                                }
-                                                alt="wired_earphones"
-                                                className="w-24 h-24"
-                                            />
-                                            <span>Wired Earphones</span>
-                                        </li>
+                                        {categories.map((cat) => (
+                                            <Link
+                                                key={cat.slug}
+                                                className={`${styles.flexCenter} flex-col text-center gap-2 pb-2`}
+                                                to={`/products/${cat.slug}`}
+                                            >
+                                                <img
+                                                    src={cat.img}
+                                                    alt={cat.slug}
+                                                    className="w-24 h-24"
+                                                />
+                                                <span>{cat.name}</span>
+                                            </Link>
+                                        ))}
                                     </ul>
                                 </section>
                             </li>

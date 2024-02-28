@@ -1,6 +1,7 @@
 import React from "react";
 import { logos } from "../assets/index";
 import { urlFor } from "../lib/client";
+import { useCart } from "../contexts/CartContext";
 import {
     BsFillPatchCheckFill,
     BsFillStarFill,
@@ -10,6 +11,10 @@ import {
 import { FaTruckFast } from "react-icons/fa6";
 
 const ProductInfo = ({ product }) => {
+    const { addItem } = useCart();
+    const handleAddToCart = () => {
+        addItem({ product });
+    };
     return (
         <div className="flex flex-col gap-2 bg-pattens-blue-50 rounded-lg">
             <div className="w-full grid md:grid-cols-2 gap-2 rounded-lg">
@@ -70,7 +75,10 @@ const ProductInfo = ({ product }) => {
                             <p className="text-xl font-medium">
                                 ₹{product.price}
                             </p>
-                            <button className=" bg-pattens-blue-800 rounded-lg text-pattens-blue-50 p-2">
+                            <button
+                                className=" bg-pattens-blue-800 rounded-lg text-pattens-blue-50 p-2"
+                                onClick={handleAddToCart}
+                            >
                                 Add to Cart
                             </button>
                         </section>

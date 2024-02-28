@@ -12,6 +12,8 @@ import Home from "./pages/Home.jsx";
 import Login from "./components/auth/Login.jsx";
 import SignUp from "./components/auth/SignUp.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
+import Categories from "./pages/Categories.jsx";
+import Products from "./pages/Products.jsx";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext.jsx";
 import { ProductsDataContextProvider } from "./contexts/ProductsDataContext.jsx";
 import { CartContextProvider } from "./contexts/CartContext.jsx";
@@ -24,7 +26,12 @@ const router = createBrowserRouter(
                 <Route path="" element={<Login />} />
                 <Route path="signup/" element={<SignUp />} />
             </Route>
-            <Route path="products/:slug" element={<ProductDetail />} />
+            <Route
+                path="products/:category/:slug"
+                element={<ProductDetail />}
+            />
+            <Route path="products/:category" element={<Categories />} />
+            <Route path="products/" element={<Products />} />
         </Route>
     )
 );

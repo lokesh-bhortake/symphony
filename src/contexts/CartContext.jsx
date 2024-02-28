@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from "react";
 const cartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const [cart, setCart] = useState([]);
 
     const addItem = ({ product }) => {

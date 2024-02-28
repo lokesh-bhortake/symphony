@@ -31,21 +31,21 @@ const Corousel = () => {
             >
                 <SwiperSlide>
                     <img
-                        srcSet={`${corousel_imgs[3]} 768w, ${corousel_imgs[0]} 1440w`}
+                        srcSet={`${corousel_imgs[6]} 768w, ${corousel_imgs[3]} 1280w, ${corousel_imgs[0]} 1440w`}
                         src={corousel_imgs}
                         alt="corousel_image1"
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
-                        srcSet={`${corousel_imgs[4]} 768w, ${corousel_imgs[1]} 1440w`}
+                        srcSet={`${corousel_imgs[7]} 768w,${corousel_imgs[4]} 1280w, ${corousel_imgs[1]} 1440w`}
                         src={corousel_imgs}
                         alt="corousel_image2"
                     />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img
-                        srcSet={`${corousel_imgs[5]} 768w, ${corousel_imgs[2]} 1440w`}
+                        srcSet={`${corousel_imgs[8]} 768w, ${corousel_imgs[5]} 1280w, ${corousel_imgs[2]} 1440w`}
                         src={corousel_imgs}
                         alt="corousel_image3"
                     />
