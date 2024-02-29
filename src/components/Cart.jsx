@@ -30,21 +30,21 @@ const Cart = () => {
         }
 
         return () => {
-            document.body.style.overflow = "auto"; // Reset to default when component unmounts
+            document.body.style.overflow = "auto";
         };
     }, [isVisible]);
 
     return (
         <>
             <div
-                className={`cart flex flex-col justify-between bg-pattens-blue-500 fixed z-20 top-0 right-0 h-full ${
+                className={`cart flex flex-col justify-between bg-pattens-blue-400 text-pattens-blue-950 fixed z-20 top-0 right-0 h-full ${
                     isVisible ? "" : "cart-close"
                 }`}
                 style={{
                     visibility: isVisible ? "visible" : "hidden",
                 }}
             >
-                <div className="flex flex-col justify-start items-start px-2 pt-4 border max-h-[85%] h-full w-full">
+                <div className="flex flex-col justify-start items-start px-2 pt-4 max-h-[85%] h-full w-full">
                     <div className="flex gap-2 items-center">
                         <BsArrowRightCircleFill
                             onClick={() => setIsVisible(false)}
@@ -52,19 +52,20 @@ const Cart = () => {
                         <p>Total items : {getTotalItems()}</p>
                     </div>
 
-                    <div className="flex flex-col w-full gap-2 my-4 bg-pattens-blue-950 h-full overflow-auto">
+                    <div className="flex flex-col w-full gap-2 my-4 h-full overflow-auto">
                         {cart.length ? (
                             cart.map((product, index) => (
                                 <div
                                     key={index}
-                                    className="flex bg-pattens-blue-200 w-full p-2 text-base"
+                                    className="flex w-full p-2 text-base border-b border-pattens-blue-500"
                                 >
-                                    <section className="w-24 h-24">
+                                    <section className="w-24 h-24 rounded-lg">
                                         <img
                                             src={urlFor(
                                                 product.images[0]
                                             ).url()}
                                             alt={product.name}
+                                            className="rounded-lg"
                                         />
                                     </section>
                                     <section className="flex flex-col w-full px-2 ml-2 gap-1">
@@ -85,14 +86,14 @@ const Cart = () => {
                                         <p className="text-lg font-bold">
                                             {product.price}
                                         </p>
-                                        <div className="flex items-center text-base gap-2 bg-pattens-blue-500 w-fit text-center rounded-lg">
+                                        <div className="flex items-center text-base gap-2 bg-pattens-blue-700 text-pattens-blue-50 w-fit text-center rounded-lg">
                                             <BsDash
                                                 className="h-5 w-6 pl-2"
                                                 onClick={() =>
                                                     updateQuantity({ product })
                                                 }
                                             />
-                                            <span className="px-2 bg-pattens-blue-50">
+                                            <span className="px-2 bg-pattens-blue-100 text-pattens-blue-900">
                                                 {product.quantity}
                                             </span>
                                             <BsPlusLg
@@ -109,20 +110,26 @@ const Cart = () => {
                             <div className="flex flex-col items-center justify-center gap-8 h-full text-2xl">
                                 <BsCart3 className="h-20 w-20" />
                                 <p>Oops Your Cart Is Empty!</p>
+                                <button
+                                    className="p-2 bg-pattens-blue-600 rounded-lg"
+                                    onClick={() => setIsVisible(false)}
+                                >
+                                    Continue Shopping
+                                </button>
                             </div>
                         )}
                     </div>
                 </div>
 
                 {/* Bottom Section */}
-                <div className="flex justify-between bg-pattens-blue-200 w-full my-2 py-2 px-4">
-                    <section>
-                        <p>{getTotalPrice()}</p>
-                        <p>Inclusive of all taxes</p>
+                <div className="flex justify-between  w-full my-2 py-2 px-4 border-t border-pattens-blue-500">
+                    <section className="h-full">
+                        <p className="font-bold text-lg">₹ {getTotalPrice()}</p>
+                        <p className="text-sm">Inclusive of all taxes</p>
                     </section>
-                    <section>
+                    <section className="flex items-center justify-center">
                         <Link
-                            className="h-full bg-pattens-blue-400 p-2 rounded-lg"
+                            className="bg-pattens-blue-200 p-2 rounded-lg"
                             to=""
                         >
                             Confirm Order

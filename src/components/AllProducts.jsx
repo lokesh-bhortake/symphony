@@ -42,10 +42,10 @@ const AllProducts = () => {
 
     return (
         <>
-            <div className="items-start w-full px-4 text-2xl font-bold my-6">
+            <div className="items-start w-full px-4 text-2xl font-bold mt-6 text-pattens-blue-950">
                 <h4>Products</h4>
             </div>
-            <div className="flex items-center w-full justify-end gap-1 bg-pattens-blue-100 p-2">
+            <div className="flex items-center w-full justify-end gap-2 m-2">
                 <section className="flex items-center justify-end gap-1 p-2 rounded-lg bg-pattens-blue-200 text-md">
                     <BsArrowDownUp />
                     <label htmlFor="sort" className="font-semibold">
@@ -69,7 +69,7 @@ const AllProducts = () => {
                     </select>
                 </section>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 m-4">
                 {items &&
                     items.map((product, index) => (
                         <ProductSlide key={index} product={product} />

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import toast from "react-hot-toast";
 
 const cartContext = createContext();
 
@@ -24,16 +25,19 @@ export const CartContextProvider = ({ children }) => {
                         : item
                 )
             );
+            toast.success(`${product.name} quantity updated!`);
         } else {
             setCart([
                 ...cart,
                 { ...product, quantity: 1, totalPrice: product.price },
             ]);
+            toast.success(`${product.name} successfully added!`);
         }
     };
 
     const removeItem = (productId) => {
         setCart(cart.filter((item) => item._id !== productId));
+        toast.success("Product successfully removed!");
     };
 
     const updateQuantity = ({ product }) => {
@@ -51,6 +55,7 @@ export const CartContextProvider = ({ children }) => {
                         : item
                 )
             );
+            toast.success(`${product.name} quantity updated!`);
         }
     };
 

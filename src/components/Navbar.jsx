@@ -39,7 +39,7 @@ const Navbar = () => {
     const handleToggle = (key) => setToggle({ ...toggle, [key]: !toggle[key] });
 
     return (
-        <nav className="fixed top-0 w-full px-2 md:px-4 pt-2 md:pt-4 py-2 md:py-0 text-shadow-green-50 text-base md:text-lg bg-pattens-blue-500 z-10">
+        <nav className="fixed top-0 w-full px-2 md:px-4 pt-2 md:pt-4 py-2 md:py-0 bg-pattens-blue-200 text-pattens-blue-950 text-base md:text-lg z-10 border-b border-b-pattens-blue-400">
             <div className={`${styles.flexCenter}`}>
                 <div className="flex justify-between items-center w-full 2xl:max-w-7xl">
                     <section
@@ -58,7 +58,7 @@ const Navbar = () => {
                         )}
                         <a href="/">
                             <img
-                                src={logos.logoSvgW}
+                                src={logos.logoSvgB}
                                 alt="logo"
                                 className="h-12 w-auto py-1"
                             />
@@ -83,13 +83,12 @@ const Navbar = () => {
 
                             {toggle.categories && (
                                 <div className="absolute top-20 left-auto bg-black z-10">
-                                    <ul className="grid grid-cols-4 gap-2 p-2 bg-pattens-blue-500">
+                                    <ul className="grid grid-cols-4 gap-2 p-2 bg-pattens-blue-200">
                                         {categories.map((cat) => (
                                             <Link
                                                 key={cat.slug}
-                                                className={`bg-slate-300 p-2 flex items-center justify-start gap-2`}
+                                                className={`p-2 flex items-center justify-start gap-2 hover:text-pattens-blue-500`}
                                                 to={`/products/${cat.slug}`}
-                                                // state={filterData(cat.slug)}
                                             >
                                                 <img
                                                     src={cat.img}
@@ -103,7 +102,7 @@ const Navbar = () => {
                                 </div>
                             )}
                         </li>
-                        <li>Bestsellers</li>
+                        <Link to="/products">Products</Link>
                     </ul>
 
                     <section className={`${styles.flexCenter} gap-4 text-2xl`}>
@@ -111,12 +110,14 @@ const Navbar = () => {
                             onClick={() => setIsVisible(true)}
                             className="cursor-pointer"
                         />
-                        <SlUser className="cursor-pointer" />
+                        <Link to={"/auth"}>
+                            <SlUser className="cursor-pointer" />
+                        </Link>
                     </section>
 
                     {/* Mobile nav */}
                     <div
-                        className={`customSlide bg-pattens-blue-500 absolute border top-16 z-10 left-0 h-svh ${
+                        className={`customSlide bg-pattens-blue-200 absolute top-16 z-10 left-0 h-svh ${
                             toggle.nav ? "" : "slide-close"
                         }`}
                         style={{
@@ -128,7 +129,7 @@ const Navbar = () => {
                         >
                             <li
                                 className={
-                                    "flex flex-col items-center justify-between border p-2"
+                                    "flex flex-col items-center justify-between p-2"
                                 }
                             >
                                 <section className="flex items-center justify-between w-full">
@@ -152,7 +153,7 @@ const Navbar = () => {
                                 <section
                                     className={`${
                                         toggle.categories ? "block" : "hidden"
-                                    } w-full bg-slate-700 text-white border`}
+                                    } w-full text-white`}
                                 >
                                     <ul className="grid grid-cols-2 gap-2">
                                         {categories.map((cat) => (
@@ -160,6 +161,9 @@ const Navbar = () => {
                                                 key={cat.slug}
                                                 className={`${styles.flexCenter} flex-col text-center gap-2 pb-2`}
                                                 to={`/products/${cat.slug}`}
+                                                onClick={() =>
+                                                    handleToggle("nav")
+                                                }
                                             >
                                                 <img
                                                     src={cat.img}
@@ -172,14 +176,20 @@ const Navbar = () => {
                                     </ul>
                                 </section>
                             </li>
-                            <li className="flex items-center justify-between p-2">
-                                Bestsellers
-                                <SlArrowRight className="text-md" />
+                            <li>
+                                <Link
+                                    to="/products"
+                                    className="flex items-center justify-between p-2"
+                                    onClick={() => handleToggle("nav")}
+                                >
+                                    Products
+                                    <SlArrowRight className="text-md" />
+                                </Link>
                             </li>
-                            <li className="flex items-center justify-between p-2">
+                            {/* <li className="flex items-center justify-between p-2">
                                 Account
                                 <SlArrowRight className="text-md" />
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ const Products = () => {
     return (
         <>
             <div className={`${styles.flexCenter} mt-20`}>
-                <div className="flex flex-col justify-center items-center w-full 2xl:max-w-7xl bg-pattens-blue-50">
+                <div className="flex flex-col p-4 justify-center items-center w-full 2xl:max-w-7xl">
                     <AllProducts />
                 </div>
             </div>

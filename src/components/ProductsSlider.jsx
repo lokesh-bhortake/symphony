@@ -22,21 +22,24 @@ const ProductsSlider = () => {
                 <p>Error: {error.message}</p>
             ) : (
                 <Swiper
-                    slidesPerView={1}
                     spaceBetween={10}
                     navigation={true}
                     breakpoints={{
                         480: {
                             slidesPerView: 2,
-                            spaceBetween: 10,
+                            spaceBetween: 20,
                         },
                         640: {
                             slidesPerView: 3,
-                            spaceBetween: 20,
+                            spaceBetween: 25,
                         },
                         1024: {
                             slidesPerView: 4,
                             spaceBetween: 30,
+                        },
+                        1280: {
+                            slidesPerView: 4,
+                            spaceBetween: 35,
                         },
                     }}
                     modules={[Navigation]}
@@ -48,7 +51,7 @@ const ProductsSlider = () => {
                                 product.bestseller && (
                                     <SwiperSlide
                                         key={index}
-                                        className="m-4 rounded-xl"
+                                        className="rounded-xl p-1"
                                     >
                                         <ProductSlide product={product} />
                                     </SwiperSlide>

@@ -16,13 +16,13 @@ const ProductInfo = ({ product }) => {
         addItem({ product });
     };
     return (
-        <div className="flex flex-col gap-2 bg-pattens-blue-50 rounded-lg">
-            <div className="w-full grid md:grid-cols-2 gap-2 rounded-lg">
-                <section className="rounded-lg">
+        <div className="flex flex-col gap-2 rounded-lg">
+            <div className="w-full flex flex-col sm:flex-row justify-around items-center gap-2 rounded-lg">
+                <section className="flex items-center justify-center rounded-lg h-full max-h-96 w-full max-w-96">
                     <img
                         src={urlFor(product.images[0]).url()}
                         alt={product.name}
-                        className="rounded-lg"
+                        className="rounded-lg h-full md:h-fit w-full md:w-fit"
                     />
                 </section>
                 <section className="flex gap-4 flex-col p-4">
@@ -45,7 +45,7 @@ const ProductInfo = ({ product }) => {
                                 <img
                                     src={logos.amazonLogo}
                                     alt="amazon_logo"
-                                    className="h-16 w-16 bg-pattens-blue-100"
+                                    className="h-16 w-16 bg-pattens-blue-100 rounded-lg"
                                 />
                                 <section className="flex flex-col justify-center items-start text-sm gap-2 font-semibold">
                                     <p>75k+ units sold on Amazon</p>
@@ -57,7 +57,7 @@ const ProductInfo = ({ product }) => {
                                 </section>
                             </div>
                         </section>
-                        <section className="flex gap-4 text-sm text-bunker-900">
+                        <section className="flex gap-4 text-sm text-pattens-blue-900">
                             <span className="flex flex-col items-center justify-center gap-2">
                                 <FaTruckFast className="h-8 w-8" />
                                 <p>Free Delivery</p>
@@ -85,7 +85,12 @@ const ProductInfo = ({ product }) => {
                     </section>
                 </section>
             </div>
-            <p className="p-2">{product.description}</p>
+            <p className="flex flex-col p-2">
+                <span className="font-bold text-2xl">
+                    Quick product description
+                </span>
+                <p className="text-base py-2">{product.description}</p>
+            </p>
         </div>
     );
 };

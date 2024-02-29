@@ -10,11 +10,11 @@ const ProductDetail = () => {
     return (
         <>
             <div
-                className={`${styles.flexCenter} mt-28 md:mt-20 bg-pattens-blue-900`}
+                className={`${styles.flexCenter} mt-24 text-pattens-blue-950 px-4`}
             >
-                <div className="flex flex-col justify-center items-center w-full 2xl:max-w-7xl gap-4">
+                <div className="flex flex-col justify-center items-center w-full 2xl:max-w-7xl gap-4 px-2">
                     <ProductInfo product={pData} />
-                    <p className="font-bold text-2xl text-start w-full">
+                    <p className="font-bold text-2xl text-start w-full p-1">
                         You might also like
                     </p>
                     <ProductsSlider />

@@ -11,7 +11,7 @@ const ProductSlide = ({ product }) => {
     };
     return (
         <>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 rounded-xl bg-pattens-blue-100 border-2 border-pattens-blue-200 shadow-md text-pattens-blue-950">
                 <Link
                     className="gap-2 flex flex-col"
                     to={`/products/${product.category}/${product.slug.current}`}
@@ -27,16 +27,19 @@ const ProductSlide = ({ product }) => {
                         className={`flex justify-center items-center gap-2 text-xs w-full`}
                     >
                         {product.tags.map((tag, index) => (
-                            <p key={index} className="rounded-lg border p-1">
+                            <p
+                                key={index}
+                                className="rounded-lg p-2 font-medium bg-pattens-blue-100 text-pattens-blue-900 border border-pattens-blue-600"
+                            >
                                 {tag}
                             </p>
                         ))}
                     </div>
                 </Link>
                 <div className="flex justify-around items-center font-semibold py-2 mb-2">
-                    <p>₹{product.price}</p>
+                    <p className="text-xl">₹{product.price}</p>
                     <button
-                        className="font-normal text-base bg-pattens-blue-300 px-2 py-1 rounded-lg"
+                        className="font-medium text-base bg-pattens-blue-300 p-2 rounded-lg"
                         type="button"
                         onClick={handleAddToCart}
                     >
