@@ -28,9 +28,9 @@ const ProductInfo = ({ product }) => {
                 <section className="flex gap-4 flex-col p-4">
                     <section className="flex flex-col items-start justify-start gap-2">
                         <span className="flex items-baseline justify-center gap-2 text-xs">
-                            <BsFillStarFill className="text-shadow-green-300 " />
+                            <BsFillStarFill className="text-amber-400" />
                             <p>4.5 | 1234 reviews</p>
-                            <BsFillPatchCheckFill className="text-shadow-green-400" />
+                            <BsFillPatchCheckFill className="text-green-500" />
                         </span>
                         <h1 className=" font-bold text-3xl ">{product.name}</h1>
                         <span className="text-base font-light">
@@ -76,7 +76,7 @@ const ProductInfo = ({ product }) => {
                                 ₹{product.price}
                             </p>
                             <button
-                                className=" bg-pattens-blue-800 rounded-lg text-pattens-blue-50 p-2"
+                                className=" btn rounded-lg text-pattens-blue-50 p-2"
                                 onClick={handleAddToCart}
                             >
                                 Add to Cart

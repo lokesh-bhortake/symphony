@@ -45,7 +45,7 @@ const Cart = () => {
                 }}
             >
                 <div className="flex flex-col justify-start items-start px-2 pt-4 max-h-[85%] h-full w-full">
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-2 items-center pb-4 border-b border-b-pattens-blue-500 w-full">
                         <BsArrowRightCircleFill
                             onClick={() => setIsVisible(false)}
                         />{" "}
@@ -111,7 +111,7 @@ const Cart = () => {
                                 <BsCart3 className="h-20 w-20" />
                                 <p>Oops Your Cart Is Empty!</p>
                                 <button
-                                    className="p-2 bg-pattens-blue-600 rounded-lg"
+                                    className="py-2 px-4 text-pattens-blue-50 btn rounded-lg"
                                     onClick={() => setIsVisible(false)}
                                 >
                                     Continue Shopping
@@ -122,14 +122,14 @@ const Cart = () => {
                 </div>
 
                 {/* Bottom Section */}
-                <div className="flex justify-between  w-full my-2 py-2 px-4 border-t border-pattens-blue-500">
+                <div className="flex justify-between w-full my-2 py-2 px-4 border-t border-pattens-blue-500">
                     <section className="h-full">
                         <p className="font-bold text-lg">₹ {getTotalPrice()}</p>
                         <p className="text-sm">Inclusive of all taxes</p>
                     </section>
                     <section className="flex items-center justify-center">
                         <Link
-                            className="bg-pattens-blue-200 p-2 rounded-lg"
+                            className="btn text-pattens-blue-50 p-2 rounded-lg"
                             to=""
                         >
                             Confirm Order

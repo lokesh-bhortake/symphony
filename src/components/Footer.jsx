@@ -38,13 +38,13 @@ const Footer = () => {
     return (
         <>
             <div
-                className={`${styles.flexCenter} mt-10 bg-pattens-blue-600 p-4 text-pattens-blue-50`}
+                className={`${styles.flexCenter} mt-10 bg-pattens-blue-200 p-4 text-pattens-blue-950`}
             >
                 <div className="flex flex-col justify-center items-center w-full 2xl:max-w-7xl gap-6 text-base p-4">
                     <section className="grid sm:grid-cols-2 gap-2 justify-around items-start w-full">
                         <section className="flex flex-col gap-2">
                             <img
-                                src={logos.logoSvgW}
+                                src={logos.logoSvgB}
                                 alt="logo"
                                 className="h-28 w-60"
                             />
@@ -66,7 +66,7 @@ const Footer = () => {
                                 />
                                 <button
                                     type="submit"
-                                    className="p-2 rounded-lg bg-pattens-blue-800"
+                                    className="btn p-2 rounded-lg text-pattens-blue-50"
                                 >
                                     Subscribe
                                 </button>

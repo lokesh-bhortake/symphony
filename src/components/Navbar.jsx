@@ -33,6 +33,7 @@ const categories = [
 ];
 
 const Navbar = () => {
+    const { getTotalItems } = useCart();
     const [toggle, setToggle] = useState({ nav: false, categories: false });
     const { setIsVisible } = useCart();
 
@@ -106,10 +107,15 @@ const Navbar = () => {
                     </ul>
 
                     <section className={`${styles.flexCenter} gap-4 text-2xl`}>
-                        <SlBasket
-                            onClick={() => setIsVisible(true)}
-                            className="cursor-pointer"
-                        />
+                        <div className="h-6 w-6 relative">
+                            <SlBasket
+                                onClick={() => setIsVisible(true)}
+                                className="cursor-pointer w-full h-full"
+                            />
+                            <div className="absolute p-1 z-20 bottom-3 left-3 rounded-full bg-red-500 text-[10px] leading-none text-pattens-blue-50">
+                                {getTotalItems()}
+                            </div>
+                        </div>
                         <Link to={"/auth"}>
                             <SlUser className="cursor-pointer" />
                         </Link>

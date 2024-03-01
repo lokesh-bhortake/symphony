@@ -87,3 +87,15 @@ form > p {
 .cart-close {
    transform: translateX(100%);
 }
+
+.btn {
+    @apply bg-gradient-to-b from-pattens-blue-500 to-pattens-blue-600 shadow-sm shadow-pattens-blue-950
+}
+
+.btn:hover {
+    @apply bg-gradient-to-b from-pattens-blue-600 to-pattens-blue-700 shadow-sm shadow-pattens-blue-950
+}
+
+.btn:active {
+    @apply bg-gradient-to-b from-pattens-blue-700 to-pattens-blue-800 shadow-sm shadow-pattens-blue-950
+}

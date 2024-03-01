@@ -39,7 +39,7 @@ const ProductSlide = ({ product }) => {
                 <div className="flex justify-around items-center font-semibold py-2 mb-2">
                     <p className="text-xl">₹{product.price}</p>
                     <button
-                        className="font-medium text-base bg-pattens-blue-300 p-2 rounded-lg"
+                        className="btn font-medium text-base p-2 rounded-lg text-pattens-blue-50"
                         type="button"
                         onClick={handleAddToCart}
                     >
