@@ -7,7 +7,7 @@ const client = createClient(
         dataset: 'production',
         useCdn: true, 
         apiVersion: '2024-02-17',
-        token: import.meta.env.VITE_sanity_token,
+        token: import.meta.env.VITE_sanity_deploy_token,
         ignoreBrowserTokenWarning: true,
     }
 )

@@ -24,7 +24,7 @@ const ProductSlide = ({ product }) => {
                     />
                     <h3 className="font-bold text-center">{product.name}</h3>
                     <div
-                        className={`flex justify-center items-center gap-2 text-xs w-full`}
+                        className={`flex justify-center items-center gap-2 text-xs w-full px-4 md:px-0`}
                     >
                         {product.tags.map((tag, index) => (
                             <p
@@ -36,7 +36,7 @@ const ProductSlide = ({ product }) => {
                         ))}
                     </div>
                 </Link>
-                <div className="flex justify-around items-center font-semibold py-2 mb-2">
+                <div className="flex justify-around items-center font-semibold p-2 md:px-0 mb-2">
                     <p className="text-xl">₹{product.price}</p>
                     <button
                         className="btn font-medium text-base p-2 rounded-lg text-pattens-blue-50"

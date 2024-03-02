@@ -52,7 +52,7 @@ const Login = () => {
                 <span className="text-sm font-normal mt-2">
                     Don't have an account?{" "}
                     <Link
-                        to="signup/"
+                        to="/auth/signup/"
                         className="text-pattens-blue-800 font-semibold"
                     >
                         Sign Up

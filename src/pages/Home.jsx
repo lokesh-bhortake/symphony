@@ -15,8 +15,8 @@ const Home = () => {
                     <div className="flex flex-col items-start justify-start w-full px-4">
                         <ShopByCategories />
                     </div>
-                    <div className="flex flex-col items-start justify-start w-full text-pattens-blue-900">
-                        <h2 className="font-normal text-2xl mt-12 px-4">
+                    <div className="flex flex-col items-start justify-start w-full px-4 text-pattens-blue-900">
+                        <h2 className="font-normal text-2xl mt-12 pb-2">
                             Explore{" "}
                             <span className="font-bold underline underline-offset-2 text-pattens-blue-950">
                                 Bestsellers
@@ -24,7 +24,7 @@ const Home = () => {
                         </h2>
                         <ProductsSlider />
                     </div>
-                    <div className="flex items-center justify-around w-full px-4 my-4 text-pattens-blue-900">
+                    <div className="flex items-center justify-around w-full px-4 my-2 sm:my-4 text-pattens-blue-900">
                         <span className="flex flex-col items-center justify-center gap-2">
                             <FaTruckFast className="h-12 w-12" />
                             <p>

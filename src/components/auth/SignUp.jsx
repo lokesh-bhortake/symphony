@@ -71,8 +71,7 @@ const SignUp = () => {
                 <span className="text-sm font-normal mt-2">
                     Already have an account?{" "}
                     <Link
-                        to=".."
-                        relative="login/"
+                        to="/auth"
                         className="text-pattens-blue-800 font-semibold"
                     >
                         Login

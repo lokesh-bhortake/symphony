@@ -11,15 +11,15 @@ const ShopByCategories = () => {
                 <span className="font-bold underline underline-offset-2 text-pattens-blue-950">
                     Products
                 </span>
-                <Link
-                    className="flex flex-col justify-center items-end gap-2 text-base"
-                    to={"/products"}
-                >
-                    <span className="flex items-center justify-center px-4 font-semibold">
+                <span className="flex flex-col justify-center items-end gap-2 text-base">
+                    <Link
+                        className="flex items-center justify-center px-4 font-semibold"
+                        to={"/products"}
+                    >
                         View All Products <BsChevronDoubleRight />
-                    </span>
-                </Link>
-                <div className="grid grid-cols-4 justify-between items-center gap-4 my-4">
+                    </Link>
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 justify-between items-center gap-4 my-4">
                     {categoriesData.map((category, index) => (
                         <Link
                             key={index}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useUserAuth } from '../contexts/UserAuthContext'
 import { validateSignUpForm, validateLogInForm } from './validations';
+import toast from "react-hot-toast";
 
 const useForm = (validateFormInfo) => {
     const { signUp, logIn } = useUserAuth();
@@ -31,6 +32,18 @@ const useForm = (validateFormInfo) => {
                 } else if (validateFormInfo === validateLogInForm) {
                     await logIn(values.email, values.password);
                 }
+                
+                if (validateFormInfo === validateSignUpForm) {
+                    toast.success('Signup successful');;
+                } else if (validateFormInfo === validateLogInForm) {
+                    toast.success('Login successful');
+                }
+                setValues({
+                    username: '',
+                    email: '',
+                    password: '',
+                    password2: ''
+                })
                 // Handle successful authentication (e.g., redirect to another page)
             } catch (error) {
                 // Handle authentication error (e.g., display error message)
