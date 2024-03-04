@@ -107,7 +107,7 @@ const Cart = () => {
                                 </div>
                             ))
                         ) : (
-                            <div className="flex flex-col items-center justify-center gap-8 h-full text-2xl">
+                            <div className="flex flex-col items-center justify-center gap-8 h-full text-lg md:text-xl lg:text-2xl">
                                 <BsCart3 className="h-20 w-20" />
                                 <p>Oops Your Cart Is Empty!</p>
                                 <button
@@ -127,7 +127,7 @@ const Cart = () => {
                         <p className="font-bold text-lg">₹ {getTotalPrice()}</p>
                         <p className="text-sm">Inclusive of all taxes</p>
                     </section>
-                    <section className="flex items-center justify-center">
+                    <section className="flex items-center justify-center text-lg md:text-xl lg:text-2xl">
                         <Link
                             className="btn text-pattens-blue-50 p-2 rounded-lg"
                             to=""

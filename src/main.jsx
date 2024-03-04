@@ -11,19 +11,21 @@ import {
 import Home from "./pages/Home.jsx";
 import Login from "./components/auth/Login.jsx";
 import SignUp from "./components/auth/SignUp.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import Categories from "./pages/Categories.jsx";
 import Products from "./pages/Products.jsx";
 import { UserAuthContextProvider } from "./contexts/UserAuthContext.jsx";
 import { ProductsDataContextProvider } from "./contexts/ProductsDataContext.jsx";
 import { CartContextProvider } from "./contexts/CartContext.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />} errorElement={<ErrorBoundary />}>
             <Route path="" element={<Home />} />
 
-            <Route path="auth/">
+            <Route path="auth" element={<ProtectedRoute />}>
                 <Route path="" element={<Login />} />
                 <Route path="signup/" element={<SignUp />} />
             </Route>

@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { useUserAuth } from '../contexts/UserAuthContext'
 import { validateSignUpForm, validateLogInForm } from './validations';
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom"
 
 const useForm = (validateFormInfo) => {
     const { signUp, logIn } = useUserAuth();
+    const navigate = useNavigate()
     const [values, setValues] = useState({
         username: '',
         email: '',
@@ -37,6 +39,7 @@ const useForm = (validateFormInfo) => {
                     toast.success('Signup successful');;
                 } else if (validateFormInfo === validateLogInForm) {
                     toast.success('Login successful');
+                    navigate(to="/", replace=true)
                 }
                 setValues({
                     username: '',
@@ -44,9 +47,7 @@ const useForm = (validateFormInfo) => {
                     password: '',
                     password2: ''
                 })
-                // Handle successful authentication (e.g., redirect to another page)
             } catch (error) {
-                // Handle authentication error (e.g., display error message)
                 setErrors({authError: error.message})
             }
         }

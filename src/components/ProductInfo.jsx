@@ -41,7 +41,7 @@ const ProductInfo = ({ product }) => {
                     <section className="flex flex-col w-fit gap-6">
                         <section className="flex flex-col gap-2">
                             <p className="text-sm font-bold">User's Love</p>
-                            <div className="flex gap-2 bg-pattens-blue-200 rounded-lg pr-4">
+                            <section className="flex gap-2 bg-pattens-blue-200 rounded-lg pr-4">
                                 <img
                                     src={logos.amazonLogo}
                                     alt="amazon_logo"
@@ -55,7 +55,7 @@ const ProductInfo = ({ product }) => {
                                         reviews
                                     </p>
                                 </section>
-                            </div>
+                            </section>
                         </section>
                         <section className="flex gap-4 text-sm text-pattens-blue-900">
                             <span className="flex flex-col items-center justify-center gap-2">
@@ -85,12 +85,12 @@ const ProductInfo = ({ product }) => {
                     </section>
                 </section>
             </div>
-            <p className="flex flex-col p-2">
+            <div className="flex flex-col p-2">
                 <span className="font-bold text-2xl">
                     Quick product description
                 </span>
                 <p className="text-base py-2">{product.description}</p>
-            </p>
+            </div>
         </div>
     );
 };

@@ -12,6 +12,8 @@ import { BsPlusLg, BsDashLg, BsXLg } from "react-icons/bs";
 import { useCart } from "../contexts/CartContext";
 import styles from "../styles";
 import { Link } from "react-router-dom";
+import { useUserAuth } from "../contexts/UserAuthContext";
+import toast from "react-hot-toast";
 
 const categories = [
     { name: "Neckbands", slug: "neckbands", img: nav_category_imgs.neckband_n },
@@ -34,10 +36,23 @@ const categories = [
 
 const Navbar = () => {
     const { getTotalItems } = useCart();
-    const [toggle, setToggle] = useState({ nav: false, categories: false });
+    const [toggle, setToggle] = useState({
+        nav: false,
+        categories: false,
+        logOutSection: false,
+    });
     const { setIsVisible } = useCart();
+    const { user, logOut } = useUserAuth();
 
     const handleToggle = (key) => setToggle({ ...toggle, [key]: !toggle[key] });
+    const handleLogOut = async () => {
+        try {
+            await logOut();
+            toast.success("Logout Successful");
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <nav className="fixed top-0 w-full px-2 md:px-4 pt-2 md:pt-4 py-2 md:py-0 bg-pattens-blue-200 text-pattens-blue-950 text-base md:text-lg z-10 border-b border-b-pattens-blue-400">
@@ -103,10 +118,12 @@ const Navbar = () => {
                                 </div>
                             )}
                         </li>
-                        <Link to="/products">Products</Link>
+                        <Link to="/products" className="hover:text-pattens-blue-500">Products</Link>
                     </ul>
 
-                    <section className={`${styles.flexCenter} gap-4 text-2xl`}>
+                    <section
+                        className={`${styles.flexCenter} gap-4 text-2xl relative`}
+                    >
                         <div className="h-6 w-6 relative">
                             <SlBasket
                                 onClick={() => setIsVisible(true)}
@@ -116,9 +133,32 @@ const Navbar = () => {
                                 {getTotalItems()}
                             </div>
                         </div>
-                        <Link to={"/auth"}>
-                            <SlUser className="cursor-pointer" />
-                        </Link>
+
+                        {user ? (
+                            <>
+                                <SlUser
+                                    className="cursor-pointer"
+                                    onClick={() =>
+                                        handleToggle("logOutSection")
+                                    }
+                                />
+
+                                {toggle.logOutSection && (
+                                    <section className="absolute h-20 w-28 rounded-xl bg-slate-400 top-10 right-0 flex items-center justify-center mt-1">
+                                        <button
+                                            className="btn rounded-lg text-pattens-blue-50 text-base p-2"
+                                            onClick={handleLogOut}
+                                        >
+                                            Logout
+                                        </button>
+                                    </section>
+                                )}
+                            </>
+                        ) : (
+                            <Link to={"/auth"}>
+                                <SlUser className="cursor-pointer" />
+                            </Link>
+                        )}
                     </section>
 
                     {/* Mobile nav */}
