@@ -25,9 +25,9 @@ const Home = () => {
                         <ProductsSlider />
                     </div>
                     <div className="flex items-center justify-around w-full px-4 my-2 sm:my-4 text-pattens-blue-900">
-                        <span className="flex flex-col items-center justify-center gap-2">
+                        <span className="flex flex-col items-center gap-2 h-full">
                             <FaTruckFast className="h-12 w-12" />
-                            <p>
+                            <p className="text-center w-full">
                                 <span className="font-semibold text-pattens-blue-950">
                                     Free
                                 </span>{" "}
@@ -36,7 +36,7 @@ const Home = () => {
                         </span>
                         <span className="flex flex-col items-center justify-center gap-2">
                             <BsShieldFillCheck className="h-12 w-12" />
-                            <p>
+                            <p className="text-center w-full">
                                 <span className="font-semibold text-pattens-blue-950">
                                     1-Year
                                 </span>{" "}
@@ -45,7 +45,7 @@ const Home = () => {
                         </span>
                         <span className="flex flex-col items-center justify-center gap-2">
                             <BsRepeat className="h-12 w-12 " />
-                            <p>
+                            <p className="text-center w-full">
                                 <span className="font-semibold text-pattens-blue-950">
                                     7-Day
                                 </span>{" "}

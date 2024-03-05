@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { corousel_imgs } from "../assets/index";
 
 // Import Swiper React components
@@ -13,6 +13,19 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Corousel = () => {
+    const [imageIndex, setImageIndex] = useState(0);
+
+    useEffect(() => {
+        const imgWidth = window.innerWidth;
+        if (imgWidth <= 640) {
+            setImageIndex(6);
+        } else if (imgWidth > 640 && imgWidth <= 1280) {
+            setImageIndex(3);
+        } else {
+            setImageIndex(0);
+        }
+    }, []);
+
     return (
         <>
             <Swiper
@@ -29,27 +42,14 @@ const Corousel = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper cursor-pointer"
             >
-                <SwiperSlide>
-                    <img
-                        srcSet={`${corousel_imgs[6]} 768w, ${corousel_imgs[3]} 1280w, ${corousel_imgs[0]} 1440w`}
-                        src={corousel_imgs}
-                        alt="corousel_image1"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img
-                        srcSet={`${corousel_imgs[7]} 768w,${corousel_imgs[4]} 1280w, ${corousel_imgs[1]} 1440w`}
-                        src={corousel_imgs}
-                        alt="corousel_image2"
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img
-                        srcSet={`${corousel_imgs[8]} 768w, ${corousel_imgs[5]} 1280w, ${corousel_imgs[2]} 1440w`}
-                        src={corousel_imgs}
-                        alt="corousel_image3"
-                    />
-                </SwiperSlide>
+                {[0, 1, 2].map((index) => (
+                    <SwiperSlide key={index}>
+                        <img
+                            src={corousel_imgs[imageIndex + index]}
+                            alt={`corousel_image${index + 1}`}
+                        />
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </>
     );

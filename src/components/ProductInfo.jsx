@@ -41,7 +41,7 @@ const ProductInfo = ({ product }) => {
                     <section className="flex flex-col w-fit gap-6">
                         <section className="flex flex-col gap-2">
                             <p className="text-sm font-bold">User's Love</p>
-                            <section className="flex gap-2 bg-pattens-blue-200 rounded-lg pr-4">
+                            <section className="flex gap-2 bg-pattens-blue-200 rounded-lg pr-0 sm:pr-4">
                                 <img
                                     src={logos.amazonLogo}
                                     alt="amazon_logo"
@@ -50,8 +50,8 @@ const ProductInfo = ({ product }) => {
                                 <section className="flex flex-col justify-center items-start text-sm gap-2 font-semibold">
                                     <p>75k+ units sold on Amazon</p>
                                     <p className="flex items-center gap-1">
-                                        More than 30k+ 5{" "}
-                                        <BsFillStarFill className="text-shadow-green-400 " />{" "}
+                                        More than 25k+ 5{" "}
+                                        <BsFillStarFill className="text-amber-500" />{" "}
                                         reviews
                                     </p>
                                 </section>
@@ -60,15 +60,21 @@ const ProductInfo = ({ product }) => {
                         <section className="flex gap-4 text-sm text-pattens-blue-900">
                             <span className="flex flex-col items-center justify-center gap-2">
                                 <FaTruckFast className="h-8 w-8" />
-                                <p>Free Delivery</p>
+                                <p className="text-center w-full">
+                                    Free Delivery
+                                </p>
                             </span>
                             <span className="flex flex-col items-center justify-center gap-2">
                                 <BsShieldFillCheck className="h-8 w-8" />
-                                <p>1 Yr Warranty</p>
+                                <p className="text-center w-full">
+                                    1 Yr Warranty
+                                </p>
                             </span>
                             <span className="flex flex-col items-center justify-center gap-2">
                                 <BsRepeat className="h-8 w-8" />
-                                <p>7-Day replacement</p>
+                                <p className="text-center w-full">
+                                    7-Day replacement
+                                </p>
                             </span>
                         </section>
                         <section className="flex flex-col w-full gap-4">

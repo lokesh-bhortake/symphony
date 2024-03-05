@@ -118,7 +118,12 @@ const Navbar = () => {
                                 </div>
                             )}
                         </li>
-                        <Link to="/products" className="hover:text-pattens-blue-500">Products</Link>
+                        <Link
+                            to="/products"
+                            className="hover:text-pattens-blue-500"
+                        >
+                            Products
+                        </Link>
                     </ul>
 
                     <section
@@ -175,7 +180,7 @@ const Navbar = () => {
                         >
                             <li
                                 className={
-                                    "flex flex-col items-center justify-between p-2"
+                                    "flex flex-col items-center justify-between p-2 border-b border-b-pattens-blue-400"
                                 }
                             >
                                 <section className="flex items-center justify-between w-full">
@@ -199,9 +204,9 @@ const Navbar = () => {
                                 <section
                                     className={`${
                                         toggle.categories ? "block" : "hidden"
-                                    } w-full text-white`}
+                                    } w-full m-2`}
                                 >
-                                    <ul className="grid grid-cols-2 gap-2">
+                                    <ul className="grid grid-cols-2 gap-2 border-t border-t-pattens-blue-400">
                                         {categories.map((cat) => (
                                             <Link
                                                 key={cat.slug}
@@ -225,7 +230,7 @@ const Navbar = () => {
                             <li>
                                 <Link
                                     to="/products"
-                                    className="flex items-center justify-between p-2"
+                                    className="flex items-center justify-between p-2 border-b border-b-pattens-blue-400"
                                     onClick={() => handleToggle("nav")}
                                 >
                                     Products
